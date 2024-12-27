@@ -17,8 +17,6 @@ High level steps:
 
 TO-DO:
 - Front end
-	1. Create angular project
-	2. Create Angular component for the product-list
 	3. Create a TS class for Products
 	4. Create Angular service to call REST APIs
 	5. Configure product-list component to subscribe to the Angular service for data updates
