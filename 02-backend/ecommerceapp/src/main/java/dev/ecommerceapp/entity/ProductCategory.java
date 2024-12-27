@@ -1,14 +1,24 @@
 package dev.ecommerceapp.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import java.util.Set;
+
+import dev.ecommerceapp.entity.Product;
 
 @Entity
 @Table(name="product_category")
 public class ProductCategory {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
+
+    @Column(name = "category_name")
     private String categoryName;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "category")
+    private Set<Product> products;
 
     public ProductCategory(Long id, String categoryName) {
         this.id = id;
@@ -31,6 +41,14 @@ public class ProductCategory {
         this.categoryName = categoryName;
     }
 
+    public Set<Product> getProducts() {
+        return this.products;
+    }
+
+    public void setProducts(Set<Product> products) {
+        this.products = products;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
@@ -49,6 +67,7 @@ public class ProductCategory {
         return "ProductCategory{" +
                 "id=" + id +
                 ", categoryName='" + categoryName + '\'' +
+                ", products=" + products +
                 '}';
     }
 }
