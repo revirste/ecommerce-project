@@ -2,7 +2,6 @@ package dev.ecommerceapp.entity;
 
 import jakarta.persistence.*;
 import java.util.Set;
-
 import dev.ecommerceapp.entity.Product;
 
 @Entity
@@ -19,6 +18,10 @@ public class ProductCategory {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "category")
     private Set<Product> products;
+
+
+    public ProductCategory() {
+    }
 
     public ProductCategory(Long id, String categoryName) {
         this.id = id;

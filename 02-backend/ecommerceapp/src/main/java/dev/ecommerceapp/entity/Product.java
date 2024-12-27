@@ -50,6 +50,9 @@ public class Product {
     @UpdateTimestamp
     private Date lastUpdated;
 
+    public Product() {
+    }
+
     public Product(Long id, ProductCategory category, String sku, String name, String description, BigDecimal unitPrice,
                    String imageUrl, Boolean active, int unitsInStock, Date dateCreated, Date lastUpdated) {
         this.id = id;
@@ -64,6 +67,8 @@ public class Product {
         this.dateCreated = dateCreated;
         this.lastUpdated = lastUpdated;
     }
+
+
 
     public Long getId() {
         return this.id;
