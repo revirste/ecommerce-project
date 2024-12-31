@@ -21,6 +21,7 @@ export class Product {
                     this._dateCreated = dateCreated;
                     this._lastUpdated = lastUpdated;
                 }
+                
 
     public get sku(): string {
         return this._sku;
